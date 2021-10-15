@@ -5,8 +5,12 @@ public class OrderItem {
     private Product prod;
 
     public OrderItem(Product prod, int quantity) {
-        if (quantity <= 0)
+        if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be positive");
+        }
+        else if (quantity > prod.getQuantity()){
+            throw new IllegalArgumentException("Product not enough");
+        }
 
         this.prod = prod;
         this.quantity = quantity;
